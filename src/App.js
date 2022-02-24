@@ -6,7 +6,8 @@ import DepositForm from "./components/DepositForm";
 const App = () => {
   const [accounts, setAccounts] = useState([
     {
-      name: "Bruce Wayne",
+      id: 1,
+      name: "Test Account 1",
       accountNumber: 100055,
       balance: 900000,
     },
@@ -14,10 +15,10 @@ const App = () => {
 
   //Deposit
   const depositAmount = (account) => {
-    // accounts.filter((account) => console.log(account.accountNumber));
+    console.log(account.amount);
     setAccounts(
       accounts.map((account) =>
-        account.accountNumber === 100055
+        account.id === 1
           ? { ...account, balance: account.balance + 1000 }
           : account
       )
