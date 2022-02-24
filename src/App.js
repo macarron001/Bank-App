@@ -1,25 +1,27 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { useState } from "react";
+import Deposit from "./components/Deposit";
+import Accounts from "./components/Accounts";
 
-function App() {
+const App = () => {
+  const [accounts, setAccounts] = useState([
+    {
+      name: "Bruce Wayne",
+      accountNumber: 100055,
+      balance: 900000,
+    },
+  ]);
+
+  //Deposit
+  const depositAmount = (accountNumber) => {
+    console.log("deposit", accountNumber);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <Accounts accounts={accounts} />
+      <Deposit accounts={accounts} onDeposit={depositAmount} />
     </div>
   );
-}
+};
 
 export default App;

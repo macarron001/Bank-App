@@ -1,13 +1,318 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: "Poppins", sans-serif;
 }
+
+h4 {
+  text-align: center;
+}
+
+.wrapper {
+  height: 93vh;
+  width: 100vh;
+  overflow: hidden;
+  margin: 20px auto;
+  border: 1px solid slateblue;
+  border-radius: 5px;
+}
+
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.deposit-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+.account {
+  font-size: 20px;
+  margin: 5px;
+  padding: 10px 20px;
+}
+
+.task {
+  background: #f4f4f4;
+
+  cursor: pointer;
+}
+
+.task.reminder {
+  border-left: 5px solid green;
+}
+
+.task h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-form {
+  margin-bottom: 40px;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control label {
+  display: block;
+}
+
+.form-control input {
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+.form-control-check {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-control-check label {
+  flex: 1;
+}
+
+.form-control-check input {
+  flex: 2;
+  height: 20px;
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(83, 108, 119);
+}
+
+.app {
+  max-width: 1200px;
+  margin: 30px auto;
+  overflow: hidden;
+  min-height: 700px;
+  border: 1px solid rgb(2, 18, 31);
+  padding: 30px, auto;
+  border: radius 10px;
+  background-color: whitesmoke;
+}
+
+.navbar {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: rgba(204, 197, 197, 0.4);
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 1px 0 black;
+}
+
+.navbar * {
+  display: inline;
+}
+
+.navbar li {
+  margin: 100px;
+}
+
+.navbar li a {
+  color: black;
+  text-decoration: none;
+}
+
+.accounts-container {
+  height: 600px;
+  width: 100%;
+  display: flex;
+}
+
+.sign-up {
+  height: 700px;
+  width: 50%;
+  border: 0.1px solid gray;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 10px 20px;
+  width: 550px;
+  text-align: center;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.form {
+  padding: 30px 40px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.form-control label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.form-control input {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px;
+  width: 400px;
+}
+
+.form-control.success input {
+  border-color: #2ecc71;
+}
+
+.form-control.error input {
+  border-color: #e74c3c;
+}
+
+.form-control.success .icon1 {
+  visibility: visible;
+  color: #2ecc71;
+}
+
+.form-control.error .icon2 {
+  visibility: visible;
+  color: #e74c3c;
+}
+
+.form-control.error small {
+  visibility: visible;
+  color: #e74c3c;
+}
+
+.form-control .icon1 {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  visibility: hidden;
+}
+
+.form-control .icon2 {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  visibility: hidden;
+}
+
+.form-control small {
+  position: absolute;
+  bottom: 5;
+  left: 0;
+  visibility: hidden;
+}
+
+.form button {
+  position: relative;
+  background-color: #070707;
+  border: 2px solid #c7baba;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-family: inherit;
+  font-size: 16px;
+  margin-top: 50px;
+  padding: 10px;
+  width: 400px;
+  cursor: pointer;
+}
+
+.accounts-list {
+  height: 700px;
+  width: 50%;
+  background-color: whitesmoke;
+  border: 0.1px solid gray;
+}
+
+.account {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  border: 0.1px solid gray;
+} */
