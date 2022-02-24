@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Deposit from "./components/Deposit";
 import Accounts from "./components/Accounts";
+import DepositForm from "./components/DepositForm";
 
 const App = () => {
   const [accounts, setAccounts] = useState([
@@ -12,8 +13,15 @@ const App = () => {
   ]);
 
   //Deposit
-  const depositAmount = (accountNumber) => {
-    console.log("deposit", accountNumber);
+  const depositAmount = (account) => {
+    // accounts.filter((account) => console.log(account.accountNumber));
+    setAccounts(
+      accounts.map((account) =>
+        account.accountNumber === 100055
+          ? { ...account, balance: account.balance + 1000 }
+          : account
+      )
+    );
   };
 
   return (

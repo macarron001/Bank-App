@@ -7,7 +7,7 @@ const Deposit = ({ accounts, onDeposit }) => {
     <div className="container">
       <header className="header">
         <h1>Deposit</h1>
-        <DepositForm />
+        <DepositForm onDeposit={onDeposit} />
         <Button
           color="steelblue"
           text="Deposit"

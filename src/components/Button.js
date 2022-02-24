@@ -2,7 +2,7 @@ const Button = ({ color, text, onDeposit, accounts }) => {
   return (
     <button
       className="btn"
-      onClick={() => onDeposit(accounts)}
+      onClick={() => onDeposit(accounts[0])}
       style={{ backgroundColor: color }}
     >
       {text}
