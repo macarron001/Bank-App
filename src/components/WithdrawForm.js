@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Button from "./Button";
 
-const DepositForm = ({ accounts, onDeposit }) => {
+const WithdrawForm = ({ accounts, onWithdraw }) => {
   const [amount, setAmount] = useState("");
-
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -12,7 +11,7 @@ const DepositForm = ({ accounts, onDeposit }) => {
       return;
     }
 
-    onDeposit({ amount });
+    onWithdraw({ amount });
 
     setAmount("");
   };
@@ -27,12 +26,12 @@ const DepositForm = ({ accounts, onDeposit }) => {
       />
       <Button
         color="steelblue"
-        text="Deposit"
-        onDeposit={onDeposit}
+        text="Withdraw"
+        onWithdraw={onWithdraw}
         accounts={accounts}
       />
     </form>
   );
 };
 
-export default DepositForm;
+export default WithdrawForm;
