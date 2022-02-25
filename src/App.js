@@ -8,12 +8,25 @@ import SignUp from "./components/SignUp";
 const App = () => {
   const [accounts, setAccounts] = useState([
     {
-      id: 1,
-      name: "Test Account 1",
-      accountNumber: 100055,
-      balance: 9000,
+      id: "",
+      name: "",
+      username: "",
+      password: "",
+      accountNumber: "",
+      balance: "",
     },
   ]);
+
+  //Add Account
+  const addAccount = (account) => {
+    const id = Math.floor(Math.random() * 10000) + 1;
+    let initialDeposit = account.initialDeposit;
+    let depositAmount = parseInt(initialDeposit);
+    const newAccount = { id, ...account };
+    newAccount.accountNumber = Math.floor(100000 + Math.random() * 900000);
+    newAccount.balance = depositAmount;
+    setAccounts([...accounts, newAccount]);
+  };
 
   //Deposit
   const depositAmount = (account) => {
@@ -48,7 +61,7 @@ const App = () => {
       <Accounts accounts={accounts} />
       <Deposit onDeposit={depositAmount} />
       <Withdraw onWithdraw={withdrawAmount} />
-      {/* <SignUp /> */}
+      <SignUp onSignUp={addAccount} />
     </div>
   );
 };

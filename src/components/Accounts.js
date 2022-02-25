@@ -5,7 +5,7 @@ const Accounts = ({ accounts }) => {
     <div className="container">
       <div className="header">
         {accounts.map((account) => (
-          <Account key={account.accountNumber} account={account} />
+          <Account key={account.id} account={account} />
         ))}
       </div>
     </div>
