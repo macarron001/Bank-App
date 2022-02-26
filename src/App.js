@@ -4,18 +4,40 @@ import Accounts from "./components/Accounts";
 import DepositForm from "./components/DepositForm";
 import Withdraw from "./components/Withdraw";
 import SignUp from "./components/SignUp";
+import LogIn from "./components/LogIn";
 
 const App = () => {
   const [accounts, setAccounts] = useState([
     {
-      id: "",
-      name: "",
-      username: "",
-      password: "",
-      accountNumber: "",
-      balance: "",
+      id: 1,
+      name: "Test Account 1",
+      username: "test",
+      password: "account",
+      accountNumber: 600123,
+      balance: 500,
     },
   ]);
+
+  //Log In
+  const locateAccount = (currentAccount) => {
+    let locatedAccount = accounts.filter((account) => {
+      return (
+        account.username === currentAccount.username &&
+        account.password === currentAccount.password
+      );
+    });
+    return locatedAccount;
+  };
+
+  const logAccount = (account) => {
+    let currentAccount = locateAccount(account);
+    if (currentAccount[0] === undefined) {
+      console.log("none");
+      return;
+    }
+    currentAccount = currentAccount[0];
+    console.log(currentAccount);
+  };
 
   //Add Account
   const addAccount = (account) => {
@@ -30,7 +52,6 @@ const App = () => {
 
   //Deposit
   const depositAmount = (account) => {
-    console.log(account.amount);
     let depositAmount = account.amount;
     let copiedAccounts = [...accounts];
     let mutatedAccounts = copiedAccounts.map((account) => {
@@ -39,12 +60,12 @@ const App = () => {
       }
       return account;
     });
+    console.log(mutatedAccounts);
     setAccounts(mutatedAccounts);
   };
 
   //Withdraw
   const withdrawAmount = (account) => {
-    console.log(account.amount);
     let depositAmount = account.amount;
     let copiedAccounts = [...accounts];
     let mutatedAccounts = copiedAccounts.map((account) => {
@@ -62,6 +83,7 @@ const App = () => {
       <Deposit onDeposit={depositAmount} />
       <Withdraw onWithdraw={withdrawAmount} />
       <SignUp onSignUp={addAccount} />
+      <LogIn onLogin={logAccount} />
     </div>
   );
 };

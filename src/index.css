@@ -38,6 +38,19 @@ h4 {
   border-radius: 5px;
 }
 
+.container-accounts {
+  max-width: 500px;
+  min-width: 300px;
+  margin: 20px auto;
+  justify-content: space-between;
+  overflow: auto;
+  height: 220px;
+  min-height: 220px;
+  border: 1px solid steelblue;
+  padding: 20px;
+  border-radius: 5px;
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -97,6 +110,19 @@ h4 {
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.container-login {
+  max-width: 500px;
+  min-width: 300px;
+  margin: 20px auto;
+  justify-content: space-between;
+  overflow: hidden;
+  height: 250px;
+  min-height: 220px;
+  border: 1px solid steelblue;
+  padding: 20px;
+  border-radius: 5px;
 }
 
 .btn {
