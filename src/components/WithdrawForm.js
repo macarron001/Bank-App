@@ -3,6 +3,11 @@ import Button from "./Button";
 
 const WithdrawForm = ({ accounts, onWithdraw }) => {
   const [amount, setAmount] = useState("");
+
+  const handleChange = (e) => {
+    setAmount(e.target.value);
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -11,25 +16,34 @@ const WithdrawForm = ({ accounts, onWithdraw }) => {
       return;
     }
 
-    onWithdraw({ amount });
+    onWithdraw(parseInt(amount));
 
     setAmount("");
   };
 
+  const stopSyntheticEvent = (e) => {
+    e.stopPropagation();
+  };
+
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <form className="transaction-form" onSubmit={onSubmit}>
       <label>Amount</label>
       <input
-        type="text"
+        type="number"
         value={amount}
-        onChange={(e) => setAmount(e.target.value)}
+        onChange={handleChange}
+        onClick={(onWithdraw, stopSyntheticEvent)}
+        min={1}
       />
-      <Button
+      <button
+        className="btn-withdraw"
         color="steelblue"
         text="Withdraw"
-        onWithdraw={onWithdraw}
+        // onClick={onWithdraw}
         accounts={accounts}
-      />
+      >
+        Withdraw
+      </button>
     </form>
   );
 };

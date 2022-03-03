@@ -1,8 +1,11 @@
 import { useState } from "react";
-import Button from "./Button";
 
 const DepositForm = ({ accounts, onDeposit }) => {
   const [amount, setAmount] = useState("");
+
+  const handleChange = (e) => {
+    setAmount(e.target.value);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -12,25 +15,33 @@ const DepositForm = ({ accounts, onDeposit }) => {
       return;
     }
 
-    onDeposit({ amount });
-
+    onDeposit(parseInt(amount));
     setAmount("");
   };
 
+  const stopSyntheticEvent = (e) => {
+    e.stopPropagation();
+  };
+
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <form className="transaction-form" onSubmit={onSubmit}>
       <label>Amount</label>
       <input
-        type="text"
+        type="number"
         value={amount}
-        onChange={(e) => setAmount(e.target.value)}
+        onChange={handleChange}
+        onClick={(onDeposit, stopSyntheticEvent)}
+        // onChange={(e) => setAmount(e.target.value)}
       />
-      <Button
+      <button
+        className="btn-deposit"
         color="steelblue"
         text="Deposit"
-        onDeposit={onDeposit}
         accounts={accounts}
-      />
+        // onClick={onDeposit}
+      >
+        DEPOSIT
+      </button>
     </form>
   );
 };

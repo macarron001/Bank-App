@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Button from "./Button";
+import { Link } from "react-router-dom";
 
-const LogIn = ({ onLogin }) => {
+const LogIn = ({ onLogin, onRegister }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,10 +15,12 @@ const LogIn = ({ onLogin }) => {
   };
 
   return (
-    <div className="container-login">
-      <header className="header">
-        <h1>Log-In</h1>
-        <form className="form" onSubmit={onSubmit}>
+    <div className="wrapper">
+      <div className="container-login">
+        <header className="header-login">
+          <h1>Log-In</h1>
+        </header>
+        <form className="form-login" onSubmit={onSubmit}>
           <label>Username</label>
           <input
             type="text"
@@ -31,9 +33,17 @@ const LogIn = ({ onLogin }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button color="steelblue" text="Log-In" onLogin={onLogin} />
+          <button className="btn-login" onClick={onLogin}>
+            Log In
+          </button>
+          <span className="span-login">
+            <p className="hyperlink-login">Don't have an account yet?</p>
+            <button className="btn-signup" onClick={onRegister}>
+              Sign Up
+            </button>
+          </span>
         </form>
-      </header>
+      </div>
     </div>
   );
 };
