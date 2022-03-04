@@ -14,7 +14,43 @@ h4 {
   text-align: center;
 }
 
+.card {
+  width: 330px;
+  height: 180px;
+  border-radius: 5px;
+  border: 1px solid black;
+  /* background-color: rgb(135, 167, 236); */
+  background-color: #f99d27;
+}
+
+.header-account {
+  width: 800px;
+  height: 90px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  /* background-color: #14213d; */
+  background-color: #b02a30;
+  /* background-color: #f99d27; */
+  /* justify-content: flex-start;
+  align-items: center; */
+}
+
+.transactions-navbar {
+  width: 800px;
+  height: 90px;
+  border-radius: 5px;
+  border-bottom: 1px solid black;
+  /* background-color: #14213d; */
+  background-color: #b02a30;
+  /* background-color: #f99d27; */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .wrapper {
+  background-color: #005b75;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -24,6 +60,7 @@ h4 {
 }
 
 .wrapper-main {
+  background-color: #005b75;
   height: 100vh;
   width: 100vw;
   display: grid;
@@ -31,7 +68,6 @@ h4 {
 }
 
 .details {
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,15 +79,6 @@ h4 {
   border: 1px solid rgb(82, 81, 81);
   border-radius: 5px;
   box-shadow: 3px 5px #949292ab;
-}
-
-.header-account {
-  width: 800px;
-  height: 90px;
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  /* justify-content: flex-start;
-  align-items: center; */
 }
 
 .btn-logout {
@@ -66,16 +93,18 @@ h4 {
   border-radius: 5px;
   font-family: inherit;
   cursor: pointer;
-  color: whitesmoke;
+  color: white;
   background-color: steelblue;
 }
 
 .header-account h1 {
+  color: white;
   font-size: 3rem;
   padding: 10px 20px;
 }
 
 .card-account {
+  background-color: whitesmoke;
   width: 800px;
   height: 250px;
   display: grid;
@@ -85,16 +114,11 @@ h4 {
 }
 
 .card-container {
+  color: whitesmoke;
+  background-color: whitesmoke;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.card {
-  width: 330px;
-  height: 180px;
-  border-radius: 5px;
-  border: 1px solid steelblue;
 }
 
 .card-bank-name {
@@ -168,6 +192,7 @@ h4 {
 }
 
 .footer-account {
+  background-color: whitesmoke;
   width: 800px;
   height: 120px;
   display: flex;
@@ -197,22 +222,12 @@ h4 {
 }
 
 .transactions-container {
+  background-color: whitesmoke;
   width: 800px;
   height: 460px;
   border: 1px solid rgb(82, 81, 81);
   border-radius: 10px;
-  box-shadow: 2px 3px #949292ab;
-}
-
-.transactions-navbar {
-  width: 800px;
-  height: 90px;
-  border-bottom: 1px solid black;
-  background-color: rgb(7, 65, 83);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  box-shadow: 3px 5px #949292ab;
 }
 
 .transactions-navbar a {
@@ -242,8 +257,7 @@ h4 {
 .transaction-container {
   width: 800px;
   height: 370px;
-  border-radius: 5px;
-  border: 1px solid rgb(168, 22, 22);
+  /* border-radius: 5px; */
 }
 
 .transaction-form {
@@ -261,6 +275,7 @@ h4 {
 }
 
 .transaction-form input {
+  border-radius: 5px;
   font-size: 40px;
   width: 300px;
   margin-right: 80px;
@@ -319,6 +334,7 @@ h4 {
 }
 
 .transfer-form input {
+  border-radius: 5px;
   height: 35px;
   width: 500px;
   font-size: 20px;
@@ -362,6 +378,7 @@ h4 {
 }
 
 .container-login {
+  background-color: whitesmoke;
   height: 500px;
   width: 500px;
   display: flex;
@@ -395,6 +412,8 @@ h4 {
 
 .form-login input,
 textarea {
+  background-color: rgb(223, 221, 221);
+  border-radius: 5px;
   display: block;
   width: 100%;
   font-size: 1.7rem;
@@ -404,7 +423,7 @@ textarea {
 
 .btn-login {
   display: inline-block;
-  background: rgba(128, 47, 0, 0.746);
+  background: rgba(0, 128, 0, 0.746);
   width: 100%;
   color: #fff;
   border: none;
@@ -451,6 +470,7 @@ textarea {
   justify-content: center;
   /* align-items: center; */
   border: 1px solid rgb(24, 61, 92);
+  background-color: whitesmoke;
   padding: 10px;
   border-radius: 5px;
 }
@@ -478,6 +498,8 @@ textarea {
 
 .form-signup input,
 textarea {
+  background-color: rgb(223, 221, 221);
+  border-radius: 5px;
   display: inline-block;
   width: 100%;
   font-size: 1.3rem;
