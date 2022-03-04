@@ -1,6 +1,4 @@
-import Account from "./Account";
-
-const Accounts = ({ accounts, currentAccount }) => {
+const Accounts = ({ accounts, currentAccount, onLogout }) => {
   const accountName = currentAccount.firstName + " " + currentAccount.lastName;
   const accountBalance = currentAccount.balance;
 
@@ -8,6 +6,9 @@ const Accounts = ({ accounts, currentAccount }) => {
     <div className="container-account">
       <div className="header-account">
         <h1>Hi {accountName}</h1>
+        <button className="btn-logout" onClick={onLogout}>
+          Logout
+        </button>
       </div>
       <div className="card-account">
         <div className="card-container">

@@ -7,11 +7,16 @@ const Main = ({
   onDeposit,
   onWithdraw,
   onTransfer,
+  onLogout,
 }) => {
   return (
     <div className="wrapper-main">
       <div className="details">
-        <Accounts accounts={accounts} currentAccount={currentAccount} />
+        <Accounts
+          accounts={accounts}
+          currentAccount={currentAccount}
+          onLogout={onLogout}
+        />
       </div>
       <Transactions
         onDeposit={onDeposit}

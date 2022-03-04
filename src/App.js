@@ -2,8 +2,6 @@ import { useState } from "react";
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import Main from "./components/Main";
-import { BrowserRouter, Route } from "react-router-dom";
-import { type } from "@testing-library/user-event/dist/type";
 
 const App = () => {
   const [accounts, setAccounts] = useState([
@@ -40,6 +38,10 @@ const App = () => {
     setIsRegistered(true);
   };
 
+  const onLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   //Log In
   const locateAccount = (currentAccount) => {
     let locatedAccount = accounts.filter((account) => {
@@ -54,7 +56,7 @@ const App = () => {
   const logAccount = (account) => {
     let currentAccount = locateAccount(account);
     if (currentAccount[0] === undefined) {
-      console.log("none");
+      alert("Not an existing account");
       return;
     }
     currentAccount = currentAccount[0];
@@ -64,15 +66,10 @@ const App = () => {
 
   //Add Account
   const addAccount = (account) => {
-    const id = Math.floor(Math.random() * 10000) + 1;
-    let initialDeposit = account.initialDeposit;
-    let depositAmount = parseInt(initialDeposit);
-    const newAccount = { id, ...account };
-    newAccount.accountNumber = Math.floor(
-      100000 + Math.random() * 9000000000000
-    );
-    newAccount.balance = depositAmount;
-    setAccounts([...accounts, newAccount]);
+    console.log(account);
+    let newAccounts = [...accounts, account];
+    setAccounts(newAccounts);
+    console.log(newAccounts);
     setIsRegistered(true);
   };
 
@@ -85,7 +82,6 @@ const App = () => {
       }
       return account;
     });
-    console.log("This is deposit");
     setAccounts(mutatedAccounts);
   };
 
@@ -98,7 +94,6 @@ const App = () => {
       }
       return account;
     });
-    console.log("This is withdraw");
     setAccounts(mutatedAccounts);
   };
 
@@ -132,6 +127,7 @@ const App = () => {
         )
       ) : (
         <Main
+          onLogout={onLogout}
           accounts={accounts}
           currentAccount={currentAccount}
           onDeposit={depositAmount}

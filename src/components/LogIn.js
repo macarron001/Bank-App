@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const LogIn = ({ onLogin, onRegister }) => {
   const [username, setUsername] = useState("");
@@ -23,22 +22,24 @@ const LogIn = ({ onLogin, onRegister }) => {
         <form className="form-login" onSubmit={onSubmit}>
           <label>Username</label>
           <input
+            required
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <label>Password</label>
           <input
+            required
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="btn-login" onClick={onLogin}>
+          <button className="btn-login" type="submit">
             Log In
           </button>
           <span className="span-login">
             <p className="hyperlink-login">Don't have an account yet?</p>
-            <button className="btn-signup" onClick={onRegister}>
+            <button className="btn-signup" onClick={onRegister} type="button">
               Sign Up
             </button>
           </span>

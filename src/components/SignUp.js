@@ -9,8 +9,18 @@ const SignUp = ({ onSignUp, onLog }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const accountNumber = Math.floor(100000 + Math.random() * 9000000000000);
 
-    onSignUp({ firstName, lastName, username, password, initialDeposit });
+    onSignUp({
+      id,
+      firstName,
+      lastName,
+      username,
+      password,
+      accountNumber,
+      balance: parseInt(initialDeposit),
+    });
 
     setFirstName("");
     setLastName("");
@@ -28,6 +38,7 @@ const SignUp = ({ onSignUp, onLog }) => {
         <form className="form-signup" onSubmit={onSubmit}>
           <label>First Name</label>
           <input
+            required
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
@@ -35,6 +46,7 @@ const SignUp = ({ onSignUp, onLog }) => {
 
           <label>Last Name</label>
           <input
+            required
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
@@ -42,28 +54,32 @@ const SignUp = ({ onSignUp, onLog }) => {
 
           <label>Username</label>
           <input
+            required
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <label>Password</label>
           <input
+            required
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <label>Initial Deposit</label>
           <input
-            type="text"
+            required
+            type="number"
             value={initialDeposit}
+            min="500"
             onChange={(e) => setInitialDeposit(e.target.value)}
           />
-          <button className="btn-register" onClick={onSignUp}>
+          <button className="btn-register" type="submit">
             Sign Up
           </button>
           <span className="span-signup">
             <p className="hyperlink-signup">Already have an account?</p>
-            <button className="btn-log" onClick={onLog}>
+            <button className="btn-log" onClick={onLog} type="button">
               Log In
             </button>
           </span>
