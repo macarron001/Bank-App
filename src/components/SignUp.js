@@ -9,7 +9,7 @@ const SignUp = ({ onSignUp, onLog }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const id = Math.floor(Math.random() * 10000) + 1;
+    const id = Math.floor(Math.random() * 100) + 1;
     const accountNumber = Math.floor(100000 + Math.random() * 9000000000000);
 
     onSignUp({

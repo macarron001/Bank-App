@@ -1,6 +1,7 @@
 const Accounts = ({ accounts, currentAccount, onLogout }) => {
   const accountName = currentAccount.firstName + " " + currentAccount.lastName;
-  const accountBalance = currentAccount.balance;
+  const accountBal = currentAccount.balance;
+  const accountBalance = accountBal.toLocaleString();
 
   return (
     <div className="container-account">

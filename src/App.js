@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import Main from "./components/Main";
@@ -6,28 +6,37 @@ import Main from "./components/Main";
 const App = () => {
   const [accounts, setAccounts] = useState([
     {
-      id: 1,
+      id: 15,
       firstName: "Henry",
       lastName: "Baker",
       username: "henry",
       password: "baker",
       accountNumber: 6024587954263,
-      balance: 500,
+      balance: 5000,
     },
     {
-      id: 2,
+      id: 28,
       firstName: "Vince",
       lastName: "Neri",
       username: "vince",
       password: "neri",
       accountNumber: 3094489322263,
-      balance: 700,
+      balance: 7000,
     },
   ]);
-
   const [currentAccount, setCurrentAccount] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isRegistered, setIsRegistered] = useState(true);
+  const LOCAL_STORAGE_KEY = "appInfo";
+
+  useEffect(() => {
+    const storedAccounts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if (storedAccounts) setAccounts(storedAccounts);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(accounts));
+  }, [accounts]);
 
   //Register
   const onRegister = () => {
@@ -71,6 +80,7 @@ const App = () => {
     setAccounts(newAccounts);
     console.log(newAccounts);
     setIsRegistered(true);
+    // localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newAccounts));
   };
 
   //Deposit
@@ -83,6 +93,7 @@ const App = () => {
       return account;
     });
     setAccounts(mutatedAccounts);
+    // localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(mutatedAccounts));
   };
 
   //Withdraw
@@ -95,6 +106,7 @@ const App = () => {
       return account;
     });
     setAccounts(mutatedAccounts);
+    // localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(mutatedAccounts));
   };
 
   //Transfer
@@ -110,7 +122,7 @@ const App = () => {
       return account;
     });
     setAccounts(mutatedAccounts);
-    console.log(mutatedAccounts);
+    // localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(mutatedAccounts));
   };
 
   return (
