@@ -2,6 +2,7 @@ const Accounts = ({ accounts, currentAccount, onLogout }) => {
   const accountName = currentAccount.firstName + " " + currentAccount.lastName;
   const accountBal = currentAccount.balance;
   const accountBalance = accountBal.toLocaleString();
+  const accountNumber = currentAccount.accountNumber;
 
   return (
     <div className="container-account">
@@ -25,8 +26,8 @@ const Accounts = ({ accounts, currentAccount, onLogout }) => {
         </div>
         <div className="account-number-container">
           <div className="account-number">
-            <h1>6024587954263</h1>
-            <h3>6024587954263</h3>
+            <h1>{accountNumber}</h1>
+            <h3>{accountNumber}</h3>
           </div>
         </div>
       </div>
