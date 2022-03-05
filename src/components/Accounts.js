@@ -40,11 +40,6 @@ const Accounts = ({ accounts, currentAccount, onLogout }) => {
           <span className="amount">{accountBalance}</span>
         </div>
       </div>
-      {/* <div className="header">
-        {accounts.map((account) => (
-          <Account key={account.id} account={account} />
-        ))}
-      </div> */}
     </div>
   );
 };
