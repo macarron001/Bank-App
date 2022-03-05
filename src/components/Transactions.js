@@ -32,7 +32,7 @@ const Transactions = ({
       <div className="transactions-container">
         <div className="transactions-navbar">
           <a
-            className="active"
+            // className="active"
             href="#deposit"
             value="Deposit"
             onClick={handleClick}
